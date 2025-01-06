@@ -60,16 +60,16 @@ class Calculadora:
                 btn.grid(row=i+1, column=j, padx=2, pady=2, sticky="nsew")
 
     def configurar_teclado(self):
-        self.ventana.bind('<Return>', lambda event: self.click_boton('='))
-        self.ventana.bind('<BackSpace>', lambda event: self.click_boton('←'))
-        self.ventana.bind('<Escape>', lambda event: self.click_boton('C'))
+        self.ventana.bind('<Return>', lambda _: self.click_boton('='))
+        self.ventana.bind('<BackSpace>', lambda _: self.click_boton('←'))
+        self.ventana.bind('<Escape>', lambda _: self.click_boton('C'))
         for num in range(10):
-            self.ventana.bind(str(num), lambda event, n=num: self.click_boton(str(n)))
-        self.ventana.bind('+', lambda event: self.click_boton('+'))
-        self.ventana.bind('-', lambda event: self.click_boton('-'))
-        self.ventana.bind('*', lambda event: self.click_boton('×'))
-        self.ventana.bind('/', lambda event: self.click_boton('÷'))
-        self.ventana.bind('.', lambda event: self.click_boton('.'))
+            self.ventana.bind(str(num), lambda _, n=num: self.click_boton(str(n)))
+        self.ventana.bind('+', lambda _: self.click_boton('+'))
+        self.ventana.bind('-', lambda _: self.click_boton('-'))
+        self.ventana.bind('*', lambda _: self.click_boton('×'))
+        self.ventana.bind('/', lambda _: self.click_boton('÷'))
+        self.ventana.bind('.', lambda _: self.click_boton('.'))
 
     def click_boton(self, valor):
         if valor in '0123456789.':
